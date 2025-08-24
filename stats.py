@@ -12,3 +12,15 @@ def num_characters(book):
         else:
             num_chars[char] += 1
     return num_chars
+
+
+def sort_on(num_chars):
+    return num_chars["num"]
+
+def convert_sort(char_dict):
+    new = []
+    for k, v in char_dict.items():
+        each  = {"char": k, "num": v}
+        new.append(each)
+    new.sort(reverse=True, key=sort_on)
+    return new
