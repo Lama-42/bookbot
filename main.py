@@ -12,13 +12,17 @@ from stats import convert_sort
 
 
 def main():
-    book_path = (path_to_file)
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        book_path = sys.argv[1]
     book = get_book_text(book_path)
     stats = num_characters(book)
     sorted_stats = convert_sort(stats)
     
     print("============ BOOKBOT ============")
-    print("Analyzing book found at {book_path}")
+    print(f"Analyzing book found at {book_path}")
     print("----------- Word Count ----------")
     print(f"Found {word_count(book)} total words")
     print("--------- Character Count -------")
